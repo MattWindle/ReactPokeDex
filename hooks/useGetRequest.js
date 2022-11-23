@@ -15,7 +15,8 @@ const useGetRequest = (url) => {
             } catch (error) {
             }
         }, [url]);
-        
+    
+    // Exports the get function
     return { get, loadingState }
 }
 
