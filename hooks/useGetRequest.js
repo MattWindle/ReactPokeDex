@@ -16,7 +16,8 @@ const useGetRequest = (url) => {
             }
         }, [url]);
     
-    // Exports the get function
+    // Exports the get function, and loadingState.
+        
     return { get, loadingState }
 }
 
