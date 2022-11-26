@@ -59,3 +59,15 @@ h1{
   display: grid;
   grid-template-columns: 1fr;
 }
+
+.loadingImg{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loadingImg img{
+  width: 40px;
+  height: 40px;
+}
