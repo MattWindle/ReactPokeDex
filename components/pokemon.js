@@ -17,12 +17,17 @@ useEffect(() => {
   }, [get])
 
 if(loadingState !== loading.loaded)
-    return( <h2>{loadingState}</h2> )
+    return( 
+        <div className="loadingImg" >
+            <img src={'./loading.gif'} alt="" />
+        </div>
+     )
 
     return(
         <div className="singlePokemon">
+            {console.log(pokemonData)}
             <img src={pokemonData.sprites.other.dream_world.front_default} alt="" />
-            <h2>{pokemon.name}</h2>
+            <h2>#{pokemonData.id} {pokemon.name}</h2>
             <ul className="stats">
             {pokemonData.stats.map(stat => {
                 return(
