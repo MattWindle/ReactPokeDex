@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import loading from "../helpers/loading";
 import useGetRequest from "../hooks/useGetRequest";
+import SinglePokemon from "./SinglePokemon";
+import { motion, stagger } from "framer-motion"
+
 
 const Pokemon = ({pokemon}) => {
-
 const [pokemonData, setpokemonData] = useState([])
 const { get, loadingState } = useGetRequest(pokemon.url)
 
@@ -11,36 +13,34 @@ useEffect(() => {
     const fetchPokemon = async () => {
         const singlePokemon = await get();
         setpokemonData(singlePokemon);
-    }
-    setTimeout(fetchPokemon, 1500);
-    ;
+    };
+    fetchPokemon();
   }, [get])
 
 if(loadingState !== loading.loaded)
     return( 
         <div className="loadingImg" >
-            <img src={'./loading.gif'} alt="" />
+            <h2>Loading</h2>
         </div>
      )
 
     return(
-        <div className="singlePokemon">
-            {console.log(pokemonData)}
-            <img src={pokemonData.sprites.other.dream_world.front_default} alt="" />
-            <h2>#{pokemonData.id} {pokemon.name}</h2>
-            <ul className="stats">
-            {pokemonData.stats.map(stat => {
-                return(
-                    <li><strong>{stat.stat.name}</strong> : {stat.base_stat}</li>
-                )
-            })}
-            {pokemonData.types.map(type => {
-                return(
-                    <li>{type.type.name}</li>
-                )
-            })}
-            </ul>
-        </div>
+        <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5,delay: 2  }}
+        >
+        <SinglePokemon 
+            key={pokemonData.id}
+            id={pokemonData.id}
+            img={pokemonData.sprites.other.dream_world.front_default}
+            name={pokemon.name}
+            stats={pokemonData.stats}
+            type={pokemonData.types}
+
+        />
+        </motion.div>
+
     )
 }
 
