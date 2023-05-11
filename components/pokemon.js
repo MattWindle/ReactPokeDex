@@ -14,6 +14,7 @@ useEffect(() => {
         setpokemonData(singlePokemon);
     };
     fetchPokemon();
+    console.log(pokemonData)
   }, [get])
 
 if(loadingState !== loading.loaded)

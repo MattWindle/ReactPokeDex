@@ -9,16 +9,9 @@ body {
   margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+body{
+  background-color: #FE380D;
 }
-
 h1{
   padding: 20px 0 40px;
   text-align: center;
@@ -40,16 +33,19 @@ h1{
 }
 .singlePokemon{
   background-color: #EEE;
-   border-radius: 15px;
-   padding: 20px;
-   position: relative;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  padding-top: 110px;
+  margin-top: 80px;
 }
 .singlePokemon img{
-  max-height: 80px;
-  max-width: 80px;
+  height: 175px;
+  aspect-ratio: 1;
   position: absolute;
-  top: -20px;
-  right: -20px;
+  inset: 0;
+  top: -100%;
+  margin: auto;
 }
 .singlePokemon h2{
   text-transform: uppercase;
@@ -66,9 +62,5 @@ h1{
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.loadingImg img{
-  width: 40px;
-  height: 40px;
 }
 
